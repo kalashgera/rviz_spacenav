@@ -6,7 +6,8 @@
   <include file="$(find spacenav_node)/launch/static_deadband.launch" ns="$(arg ns)"/>
   <node name="rviz_spacenav" pkg="rviz_spacenav" type="rviz_spacenav.py" args="" output="log" respawn="true">
     <remap from="spacenav_twist" to="~spacenav/twist" />
-    <remap from="camera" to="~camera_placement" />
+    <remap from="camera" to="/rviz/camera_placement" />
+    
   </node>
   <group if="$(arg rviz)">
       <node name="rviz" pkg="rviz" type="rviz" ns="$(arg ns)" args="-d $(find rviz_spacenav)/launch/rviz_spacenav.rviz"/>
